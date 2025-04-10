@@ -25,9 +25,9 @@
     ");
 
     if(!$conn){
-        die("Connection error: " . pg_last_error());
+        //die("Connection error: " . pg_last_error());
     }else{
-        echo "Success connection";
+        //echo "Success connection";
     }
     pg_close();
 ?>
