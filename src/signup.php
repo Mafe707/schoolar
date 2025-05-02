@@ -23,7 +23,7 @@
     if ($res){
         $row = pg_fetch_assoc($res);
         if ($row['total' ] > 0) {
-            echo "Email already exist";
+            echo "Email already exists";
         } else{
             $sql = "INSERT INTO users (firstname, lastname, email, password)
                 VALUES ('$fname', '$lname', '$email', '$enc_pass')
@@ -33,7 +33,7 @@
 
             if ($res){
                 //echo "Users has been created succesfully";
-                echo "<script>alert('User has ben created. Go to login!')";
+                echo "<script>alert('User has been created. Go to login!')</script>";
                 header('Refresh:0; url=http://localhost/schoolar/src/signin.html');
             }else{
                 echo "Error";
