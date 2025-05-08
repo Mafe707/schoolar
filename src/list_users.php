@@ -1,4 +1,4 @@
-<td?php
+<?php
     include('../config/database.php');
 ?>
 
