@@ -18,20 +18,38 @@
             <th>Status</th>
             <th>...</th>
         </tr>
-        <tr>
-            <td>Mafe</td>
-            <td>Revelo</td>
-            <td>frevelo@gmail.com</td>
-            <td>Active</td>
-            <td>
-                <img src = "icons/edit.png" width="15">
-                <img src = "icons/dash.png" width="15">
-                <img src = "icons/lupa.png" width="15">
-            </td>
-        </tr>
     <?php
         //Here code
-    ?>
+        $sql = "
+            select
+                firstname,
+                lastname,
+                email,
+                case when status = true then 'Active' else 'No active' end as status
+            from
+                users
+        ";
+        $res = pg_query($conn, $sql);
+
+        if (!$res){
+            echo "Querry error";
+            exit;
+        }
+
+        while($row = pg_fetch_assoc($res)) {
+            echo"<tr>";
+            echo"<td>". $row ['firstname'] ."</td>";
+            echo"<td>". $row ['lastname'] ."</td>";
+            echo"<td>". $row ['email'] ."</td>";
+            echo"<td>". $row ['status'] ."</td>";
+            echo"<td>";
+            echo"<a href=''><img src = 'icons/edit.png' width='15'></a>";
+            echo"<a href=''><img src = 'icons/dash.png' width='15'></a>";
+            echo"<a href=''><img src = 'icons/lupa.png' width='15'></a>";
+            echo"</td>";
+            echo"</tr>";
+        }
+    ?>   
     </table>
 </body>
 </html>

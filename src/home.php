@@ -1,5 +1,8 @@
 <?php
     session_start();
+    if (!isset($_SESSION['user_id'])){
+        header('Refresh: 0; URL=http://localhost/schoolar/src/signin.html');
+    }
 ?>
 
 <!DOCTYPE html>
